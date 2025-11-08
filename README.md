@@ -5,7 +5,7 @@ GUI-based C++ system to help faculty record student marks, map Course Outcomes t
 
 A Qt-based C++ GUI application for managing courses, mapping Course Outcomes (COs) to Program Outcomes (POs) and Program Specific Outcomes (PSOs), and automatically calculating attainment levels as per the Outcome-Based Education (OBE) framework.
 
----
+
 
 ##  Overview
 The **Course Outcome Attainment System** helps faculty members efficiently calculate and track Course Outcome (CO) attainment for their courses.  
@@ -17,7 +17,7 @@ It allows faculty to:
 
 This system simplifies manual calculations and report generation for academic departments and faculty coordinators.
 
----
+
 
 ## ✨ Features
 -  **Faculty Management** – Add faculty details (name, email, department).  
