@@ -3,7 +3,7 @@ GUI-based C++ system to help faculty record student marks, map Course Outcomes t
 
 #  Course Outcome Attainment System (Qt / C++)
 
-A Qt-based C++ GUI application for managing courses, mapping Course Outcomes (COs) to Program Outcomes (POs) and Program Specific Outcomes (PSOs), and automatically calculating attainment levels as per the Outcome-Based Education (OBE) framework.
+A Qt-based C++ GUI application for managing courses, mapping Course Outcomes (COs) to Program Outcomes (POs) and Program Specific Outcomes (PSOs), and calculating attainment levels as per the Outcome-Based Education (OBE) framework.
 
 
 
@@ -12,7 +12,7 @@ The **Course Outcome Attainment System** helps faculty members efficiently calcu
 It allows faculty to:
 - Define courses and outcomes (COs, POs, PSOs),
 - Enter student marks for internal (ISA) and semester-end (SEA) exams,
-- Automatically calculate attainment levels,
+- Calculate attainment levels,
 - And generate outcome-based reports aligned with the **Outcome-Based Education (OBE)** methodology.
 
 This system simplifies manual calculations and report generation for academic departments and faculty coordinators.
@@ -31,5 +31,4 @@ This system simplifies manual calculations and report generation for academic de
   - Attainment levels (Level 1–3)
   - Overall CO attainment (0.6 × ISA + 0.4 × SEA)  
 -  **Reports Generation** – Displays CO Attainment Table, CO–PO and CO–PSO mapping, and student-wise performance.  
--  **Export Options** – (Optional) Export reports to CSV or PDF.
 
