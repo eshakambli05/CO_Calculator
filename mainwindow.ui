@@ -1,0 +1,448 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1100</width>
+    <height>800</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Outcome Attainment System</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="mainVerticalLayout">
+    <item>
+     <widget class="QStackedWidget" name="stackedWizard">
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+
+      <!-- PAGE 1: FACULTY & COURSE SETUP -->
+      <widget class="QWidget" name="page1_setup">
+       <layout class="QVBoxLayout" name="vLayoutPage1">
+        <item>
+         <widget class="QGroupBox" name="grpInfo">
+          <property name="title">
+           <string>Step 1: Course &amp; Faculty Details</string>
+          </property>
+          <layout class="QFormLayout" name="formLayoutInfo">
+           <item row="0" column="0">
+            <widget class="QLabel" name="lblFName">
+             <property name="text">
+              <string>Faculty Name:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QLineEdit" name="editFName"/>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="lblCCode">
+             <property name="text">
+              <string>Course Code:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QLineEdit" name="editCourseCode"/>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLabel" name="lblCTitle">
+             <property name="text">
+              <string>Course Title:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <widget class="QLineEdit" name="editCourseTitle"/>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="grpCO">
+          <property name="title">
+           <string>Define Course Outcomes (COs)</string>
+          </property>
+          <layout class="QVBoxLayout" name="vLayoutCO">
+           <item>
+            <layout class="QHBoxLayout" name="hLayoutCOControls">
+             <item>
+              <widget class="QLabel" name="lblNumCO">
+               <property name="text">
+                <string>Number of COs:</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QSpinBox" name="spinNumCOs">
+               <property name="minimum">
+                <number>1</number>
+               </property>
+               <property name="maximum">
+                <number>10</number>
+               </property>
+               <property name="value">
+                <number>5</number>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="btnGenCOs">
+               <property name="text">
+                <string>Set COs</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <spacer name="spCO">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <widget class="QTableWidget" name="tableCOs">
+             <property name="columnCount">
+              <number>2</number>
+             </property>
+             <column>
+              <property name="text">
+               <string>CO Code</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>Description</string>
+              </property>
+             </column>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="navPage1">
+          <item>
+           <spacer name="spNav1">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnNext1">
+            <property name="text">
+             <string>Next: Assessment Tools &gt;</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+
+      <!-- PAGE 2: ASSESSMENT TOOLS (MAX MARKS) -->
+      <widget class="QWidget" name="page2_tools">
+       <layout class="QVBoxLayout" name="vLayoutPage2">
+        <item>
+         <widget class="QLabel" name="lblTitle2">
+          <property name="font">
+           <font>
+            <pointSize>12</pointSize>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>Step 2: Assign Max Marks for Assessment Tools</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="lblDesc2">
+          <property name="text">
+           <string>Enter the maximum marks allocated for each CO in Internal (ISA) and Semester End (SEA) exams.</string>
+          </property>
+          <property name="wordWrap">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QTableWidget" name="tableMaxMarks">
+          <property name="columnCount">
+           <number>2</number>
+          </property>
+          <column>
+           <property name="text">
+            <string>Max Marks (ISA)</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Max Marks (SEA)</string>
+           </property>
+          </column>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="navPage2">
+          <item>
+           <widget class="QPushButton" name="btnBack2">
+            <property name="text">
+             <string>&lt; Back</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="spNav2">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnNext2">
+            <property name="text">
+             <string>Next: Student Entry &gt;</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+
+      <!-- PAGE 3: STUDENT DATA ENTRY -->
+      <widget class="QWidget" name="page3_entry">
+       <layout class="QVBoxLayout" name="vLayoutPage3">
+        <item>
+         <widget class="QLabel" name="lblTitle3">
+          <property name="font">
+           <font>
+            <pointSize>12</pointSize>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>Step 3: Student Marks Entry</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="hLayoutEntryControls">
+          <item>
+           <widget class="QLabel" name="lblS">
+            <property name="text">
+             <string>Number of Students:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="spinNumStudents">
+            <property name="minimum">
+             <number>1</number>
+            </property>
+            <property name="maximum">
+             <number>200</number>
+            </property>
+            <property name="value">
+             <number>5</number>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnGenEntryTable">
+            <property name="text">
+             <string>Create Entry Table</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="spEntry">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QTableWidget" name="tableEntry">
+          <!-- Columns generated dynamically in C++ -->
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="navPage3">
+          <item>
+           <widget class="QPushButton" name="btnBack3">
+            <property name="text">
+             <string>&lt; Back</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="spNav3">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnCalculate">
+            <property name="text">
+             <string>Calculate Attainment &gt;</string>
+            </property>
+            <property name="font">
+             <font>
+              <bold>true</bold>
+             </font>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+
+      <!-- PAGE 4: RESULTS DISPLAY -->
+      <widget class="QWidget" name="page4_results">
+       <layout class="QVBoxLayout" name="vLayoutPage4">
+        <item>
+         <widget class="QLabel" name="lblTitle4">
+          <property name="font">
+           <font>
+            <pointSize>12</pointSize>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>Step 4: Student Attainment Results</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="hLayoutLegend">
+          <item>
+           <widget class="QLabel" name="lblLegend">
+            <!-- UPDATED TEXT HERE -->
+            <property name="text">
+             <string>Thresholds: Level 3 &gt;= 60% | Level 2 &gt;= 50% | Level 1 &gt;= 40% | Level 0 &lt; 40%</string>
+            </property>
+            <property name="styleSheet">
+             <string>font-weight: bold; color: #555;</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QTabWidget" name="tabResults">
+          <property name="currentIndex">
+           <number>0</number>
+          </property>
+          <widget class="QWidget" name="tabISA">
+           <attribute name="title">
+            <string>Internal Assessment (ISA)</string>
+           </attribute>
+           <layout class="QVBoxLayout" name="vTabISA">
+            <item>
+             <widget class="QTableWidget" name="tableResultISA"/>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="tabSEA">
+           <attribute name="title">
+            <string>Semester End (SEA)</string>
+           </attribute>
+           <layout class="QVBoxLayout" name="vTabSEA">
+            <item>
+             <widget class="QTableWidget" name="tableResultSEA"/>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="navPage4">
+          <item>
+           <widget class="QPushButton" name="btnBack4">
+            <property name="text">
+             <string>&lt; Back</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="spNav4">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnExportPDF">
+            <property name="text">
+             <string>Export Report to PDF</string>
+            </property>
+            <property name="font">
+             <font>
+              <bold>true</bold>
+             </font>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
