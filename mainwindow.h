@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QTableWidget>
+#include <QColor>
 #include "Course.h"
 #include "Faculty.h"
 #include "ReportGenerator.h"
@@ -24,12 +25,21 @@ private slots:
     void nextPage();
     void prevPage();
 
-    // Setup Actions
+    // Step 1: Setup
     void generateCOTable();
-    void prepareMaxMarksTable();
-    void prepareEntryTable();
 
-    // Calculation
+    // Step 2: Mapping (NEW)
+    void generatePSOTable();
+    void generateMatrixTable();
+
+    // Step 3: Max Marks
+    void prepareMaxMarksTable();
+
+    // Step 4: Entry
+    // No longer a slot because we call it via lambda or internal logic
+    // void prepareEntryTable();
+
+    // Step 5: Calculation & Export
     void calculateAndShowResults();
     void exportPDF();
 
@@ -39,13 +49,15 @@ private:
     Faculty *m_currentFaculty;
     ReportGenerator *m_reportGen;
 
-    // Helper functions
     void saveStep1Data();
+    void saveMappingData(); // NEW
     void saveMaxMarksData();
-    void readStudentData();
 
-    // Attainment Logic
-    int calculateLevel(double obtained, double max);
+    // Helper function for table generation
+    void prepareEntryTable(bool forceReset = false);
+
+    void readStudentData();
     QColor getLevelColor(int level);
 };
 #endif // MAINWINDOW_H
+
