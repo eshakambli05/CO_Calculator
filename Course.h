@@ -6,38 +6,46 @@
 #include <QMap>
 #include "CourseOutcome.h"
 #include "ProgramOutcome.h"
-#include "ProgramSpecificOutcome.h"
 #include "Student.h"
-// Forward declaration for Faculty if needed, or include it
 #include "Faculty.h"
+
+// Simple struct for PSO
+struct PSO {
+    QString code;
+    QString description;
+};
 
 class Course {
 public:
-    // Constructor
     Course(const QString& code = "", const QString& title = "");
 
-    // Basic Info
     QString getCode() const;
     QString getTitle() const;
 
-    // Course Outcomes
+    // --- COs ---
     void addCourseOutcome(const CourseOutcome& co);
     QList<CourseOutcome> getCourseOutcomes() const;
 
-    // Max Marks Configuration
+    // --- Max Marks ---
     void setMaxISAMarks(int coIndex, double marks);
     void setMaxSEAMarks(int coIndex, double marks);
     double getMaxISAMarks(int coIndex) const;
     double getMaxSEAMarks(int coIndex) const;
 
-    // PSOs
-    void addPSO(const ProgramSpecificOutcome& pso);
-    QList<ProgramSpecificOutcome> getPSOs() const;
+    // --- PSOs (New) ---
+    void clearPSOs();
+    void addPSO(const QString& code, const QString& description);
+    QList<PSO> getPSOs() const;
 
-    // Program Outcomes
+    // --- POs ---
     QList<ProgramOutcome> getProgramOutcomes() const;
 
-    // Student Management
+    // --- Mapping (New) ---
+    // Stores correlation: Key=CO_Code, Value=Map(Target_Code -> Level)
+    void setCorrelation(const QString& coCode, const QString& targetCode, int level);
+    int getCorrelation(const QString& coCode, const QString& targetCode) const;
+
+    // --- Students ---
     void clearStudents();
     void addStudent(const Student& student);
     QList<Student> getStudents() const;
@@ -46,11 +54,14 @@ private:
     QString m_code;
     QString m_title;
     QList<CourseOutcome> m_cos;
-    QList<ProgramSpecificOutcome> m_psos;
+    QList<PSO> m_psos;
     QList<Student> m_students;
 
     QMap<int, double> m_maxIsaMarks;
     QMap<int, double> m_maxSeaMarks;
+
+    // Mapping Data: CO Code -> (PO/PSO Code -> Level)
+    QMap<QString, QMap<QString, int>> m_mappingMatrix;
 };
 
 #endif // COURSE_H
